@@ -15,6 +15,7 @@ LOG_MODULE_REGISTER(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/matrix.h>
 #include <zmk/kscan.h>
 #include <zmk/display.h>
+#include <zmk/status_led.h>
 #include <drivers/ext_power.h>
 
 #define ZMK_KSCAN_DEV DT_LABEL(ZMK_MATRIX_NODE_ID)
@@ -29,4 +30,9 @@ void main(void) {
 #ifdef CONFIG_ZMK_DISPLAY
     zmk_display_init();
 #endif /* CONFIG_ZMK_DISPLAY */
+
+#ifdef CONFIG_ZMK_STATUS_LED
+    zmk_status_led_init();
+#endif /* CONFIG_ZMK_STATUS_LED */
+
 }
